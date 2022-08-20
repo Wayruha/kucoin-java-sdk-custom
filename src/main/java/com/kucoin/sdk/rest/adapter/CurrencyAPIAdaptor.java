@@ -44,4 +44,6 @@ public class CurrencyAPIAdaptor extends PublicRetrofitAPIImpl<CurrencyAPIRetrofi
     public Map<String, BigDecimal> getFiatPrice(String base, String currencies) throws IOException {
         return super.executeSync(getAPIImpl().getFiatPrice(base, currencies));
     }
+
+
 }

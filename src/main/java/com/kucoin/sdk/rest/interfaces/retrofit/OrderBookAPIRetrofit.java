@@ -15,6 +15,10 @@ import retrofit2.http.Query;
  */
 public interface OrderBookAPIRetrofit {
 
+    @GET("api/v1/market/orderbook/level1")
+
+    Call<KucoinResponse<OrderBookResponse>> getTicker(@Query("symbol") String symbol);
+
     @GET("api/v1/market/orderbook/level2_100")
     Call<KucoinResponse<OrderBookResponse>> getTop100Level2OrderBook(@Query("symbol") String symbol);
 

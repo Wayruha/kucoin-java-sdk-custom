@@ -18,6 +18,8 @@ import com.kucoin.sdk.websocket.RandomChooseStrategy;
 
 import lombok.Getter;
 
+import static com.kucoin.sdk.constants.APIConstants.INTERNAL_API_BASE_URL;
+
 /**
  * Created by chenshiwei on 2019/1/9.
  */
@@ -69,6 +71,8 @@ public class KucoinClientBuilder {
 
     private LoanAPI loanAPI;
 
+    private InternalAPI internalAPI;
+
     public KucoinRestClient buildRestClient() {
         if (StringUtils.isBlank(baseUrl)) baseUrl = APIConstants.API_BASE_URL;
         if (userAPI == null) userAPI = new UserAPIAdapter(baseUrl, apiKey, secret, passPhrase, apiKeyVersion);
@@ -86,6 +90,7 @@ public class KucoinClientBuilder {
         if (symbolAPI == null) symbolAPI = new SymbolAPIAdaptor(baseUrl);
         if (orderBookAPI == null) orderBookAPI = new OrderBookAPIAdapter(baseUrl);
         if (historyAPI == null) historyAPI = new HistoryAPIAdapter(baseUrl);
+        if (internalAPI == null) internalAPI = new InternalAPIAdapter(INTERNAL_API_BASE_URL);
         return new KucoinRestClientImpl(this);
     }
 

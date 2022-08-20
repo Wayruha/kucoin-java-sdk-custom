@@ -14,6 +14,8 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
+import java.util.List;
+
 /**
  * Created by chenshiwei on 2019/1/10.
  */
@@ -25,6 +27,9 @@ public interface DepositAPIRetrofit {
     @GET("api/v1/deposit-addresses")
     Call<KucoinResponse<DepositAddressResponse>> getDepositAddress(@Query("currency") String currency,
                                                                    @Query(("chain")) String chain);
+
+    @GET("api/v2/deposit-addresses")
+    Call<KucoinResponse<List<DepositAddressResponse>>> getDepositAddressV2(@Query("currency") String currency);
 
     @GET("api/v1/deposits")
     Call<KucoinResponse<Pagination<DepositResponse>>> getDepositPageList(@Query("currentPage") int currentPage,

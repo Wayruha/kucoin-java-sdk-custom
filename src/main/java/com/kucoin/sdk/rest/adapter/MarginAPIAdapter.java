@@ -7,13 +7,10 @@ import com.kucoin.sdk.rest.impl.retrofit.AuthRetrofitAPIImpl;
 import com.kucoin.sdk.rest.interfaces.MarginAPI;
 import com.kucoin.sdk.rest.interfaces.retrofit.MarginAPIRetrofit;
 import com.kucoin.sdk.rest.request.MarginOrderCreateRequest;
-import com.kucoin.sdk.rest.response.MarginAccountResponse;
-import com.kucoin.sdk.rest.response.MarginConfigResponse;
-import com.kucoin.sdk.rest.response.MarginOrderCreateResponse;
-import com.kucoin.sdk.rest.response.MarginPriceStrategyResponse;
-import com.kucoin.sdk.rest.response.MarkPriceResponse;
+import com.kucoin.sdk.rest.response.*;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by ezreal on 2020/12/08.
@@ -27,7 +24,6 @@ public class MarginAPIAdapter extends AuthRetrofitAPIImpl<MarginAPIRetrofit> imp
         this.passPhrase = passPhrase;
         this.apiKeyVersion = apiKeyVersion;
     }
-
 
     @Override
     public MarkPriceResponse getMarkPrice(String symbol) throws IOException{
@@ -52,5 +48,15 @@ public class MarginAPIAdapter extends AuthRetrofitAPIImpl<MarginAPIRetrofit> imp
     @Override
     public MarginPriceStrategyResponse getMarginPriceStrategy(String marginModel) throws IOException {
         return executeSync(getAPIImpl().getMarginPriceStrategy(marginModel));
+    }
+
+    @Override
+    public List<MarginIsolatedPair> getMarginIsolatedPairsInfo() throws IOException {
+        return executeSync(getAPIImpl().getIsolatedMarginSymbolsInfo());
+    }
+
+    @Override
+    public MarginIsolatedPair getMarginIsolatedPairInfo(String symbol) throws IOException {
+        return executeSync(getAPIImpl().getIsolatedAccount(symbol));
     }
 }

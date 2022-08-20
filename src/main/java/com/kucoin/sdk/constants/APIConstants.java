@@ -9,6 +9,7 @@ package com.kucoin.sdk.constants;
 public class APIConstants {
 
     public static final String API_BASE_URL = "https://openapi-v2.kucoin.com/";
+    public static final String INTERNAL_API_BASE_URL = "https://www.kucoin.com/";
 
     public static final String USER_API_KEY = "KC-API-KEY";
     public static final String USER_API_SECRET = "KC-API-SECRET";

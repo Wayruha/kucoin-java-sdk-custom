@@ -4,18 +4,15 @@
 package com.kucoin.sdk.rest.interfaces.retrofit;
 
 import com.kucoin.sdk.rest.request.MarginOrderCreateRequest;
-import com.kucoin.sdk.rest.response.KucoinResponse;
-import com.kucoin.sdk.rest.response.MarginAccountResponse;
-import com.kucoin.sdk.rest.response.MarginConfigResponse;
-import com.kucoin.sdk.rest.response.MarginOrderCreateResponse;
-import com.kucoin.sdk.rest.response.MarginPriceStrategyResponse;
-import com.kucoin.sdk.rest.response.MarkPriceResponse;
+import com.kucoin.sdk.rest.response.*;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+
+import java.util.List;
 
 /**
  * Created by ezreal on 2020/12/08.
@@ -36,4 +33,10 @@ public interface MarginAPIRetrofit {
 
     @GET("api/v1/risk/limit/strategy")
     Call<KucoinResponse<MarginPriceStrategyResponse>> getMarginPriceStrategy(@Query("marginModel") String marginModel);
+
+    @GET("api/v1/isolated/symbols")
+    Call<KucoinResponse<List<MarginIsolatedPair>>> getIsolatedMarginSymbolsInfo();
+
+    @GET("api/v1/isolated/account/{symbol")
+    Call<KucoinResponse<MarginIsolatedPair>> getIsolatedAccount(@Path("symbol")String symbol);
 }

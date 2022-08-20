@@ -4,6 +4,7 @@
 package com.kucoin.sdk.rest.interfaces;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.kucoin.sdk.rest.response.DepositAddressResponse;
 import com.kucoin.sdk.rest.response.DepositResponse;
@@ -31,6 +32,8 @@ public interface DepositAPI {
      * @return Details of a deposit address.
      */
     DepositAddressResponse getDepositAddress(String currency, String chain) throws IOException;
+
+    List<DepositAddressResponse> getDepositAddressV2(String currency) throws IOException;
 
     /**
      * Get deposit page list.

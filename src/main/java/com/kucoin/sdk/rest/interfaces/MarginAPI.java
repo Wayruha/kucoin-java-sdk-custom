@@ -4,13 +4,10 @@
 package com.kucoin.sdk.rest.interfaces;
 
 import com.kucoin.sdk.rest.request.MarginOrderCreateRequest;
-import com.kucoin.sdk.rest.response.MarginAccountResponse;
-import com.kucoin.sdk.rest.response.MarginConfigResponse;
-import com.kucoin.sdk.rest.response.MarginOrderCreateResponse;
-import com.kucoin.sdk.rest.response.MarginPriceStrategyResponse;
-import com.kucoin.sdk.rest.response.MarkPriceResponse;
+import com.kucoin.sdk.rest.response.*;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by ezreal on 2020/12/08.
@@ -63,4 +60,8 @@ public interface MarginAPI {
      * @return
      */
     MarginPriceStrategyResponse getMarginPriceStrategy(String marginModel) throws IOException;
+
+    List<MarginIsolatedPair> getMarginIsolatedPairsInfo() throws IOException;
+
+    MarginIsolatedPair getMarginIsolatedPairInfo(String symbol) throws IOException;
 }
