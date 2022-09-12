@@ -64,4 +64,6 @@ public interface MarginAPI {
     List<MarginIsolatedPair> getMarginIsolatedPairsInfo() throws IOException;
 
     MarginIsolatedPair getMarginIsolatedPairInfo(String symbol) throws IOException;
+
+    IsolatedMarginAccount getIsolatedMarginAccount() throws IOException;
 }

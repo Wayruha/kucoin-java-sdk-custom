@@ -59,4 +59,9 @@ public class MarginAPIAdapter extends AuthRetrofitAPIImpl<MarginAPIRetrofit> imp
     public MarginIsolatedPair getMarginIsolatedPairInfo(String symbol) throws IOException {
         return executeSync(getAPIImpl().getIsolatedAccount(symbol));
     }
+
+    @Override
+    public IsolatedMarginAccount getIsolatedMarginAccount() throws IOException {
+        return executeSync(getAPIImpl().getIsolatedAccount());
+    }
 }

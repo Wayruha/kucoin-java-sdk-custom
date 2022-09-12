@@ -38,5 +38,8 @@ public interface MarginAPIRetrofit {
     Call<KucoinResponse<List<MarginIsolatedPair>>> getIsolatedMarginSymbolsInfo();
 
     @GET("api/v1/isolated/account/{symbol")
-    Call<KucoinResponse<MarginIsolatedPair>> getIsolatedAccount(@Path("symbol")String symbol);
+    Call<KucoinResponse<MarginIsolatedPair>> getIsolatedAccount(@Path("symbol") String symbol);
+
+    @GET("api/v1/isolated/accounts")
+    Call<KucoinResponse<IsolatedMarginAccount>> getIsolatedAccount();
 }

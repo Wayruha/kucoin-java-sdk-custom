@@ -4,11 +4,13 @@
 
 package com.kucoin.sdk.rest.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MarginAccount {
 
     private String currency;
@@ -20,6 +22,10 @@ public class MarginAccount {
     private BigDecimal holdBalance;
 
     private BigDecimal liability;
+
+    private BigDecimal borrowableAmount;
+
+    private BigDecimal interest;
 
     private BigDecimal maxBorrowSize;
 }
