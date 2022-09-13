@@ -200,7 +200,7 @@ public class KucoinPrivateWSClientTest {
         List<AccountBalancesResponse> accountBalancesResponses = kucoinRestClient.accountAPI().listAccounts("USDT", null);
         assertThat(accountBalancesResponses.size(), Is.is(2));
         kucoinRestClient.accountAPI().innerTransfer2(new AccountTransferV2Request(String.valueOf(System.currentTimeMillis()),
-                "USDT", "trade", "main", new BigDecimal("0.000001")));
+                "USDT", null, null,  "trade", "main", new BigDecimal("0.000001")));
     }
 
 }

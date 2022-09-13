@@ -140,7 +140,7 @@ public class KucoinRestClientTest {
         AccountBalanceResponse account = sandboxKucoinRestClient.accountAPI().getAccount(tradeAccountId);
         assertThat(account, notNullValue());
 
-        Map<String, String> result = sandboxKucoinRestClient.accountAPI().innerTransfer2(new AccountTransferV2Request(String.valueOf(System.currentTimeMillis()),"BTC", "main", "trade", BigDecimal.ONE));
+        Map<String, String> result = sandboxKucoinRestClient.accountAPI().innerTransfer2(new AccountTransferV2Request(String.valueOf(System.currentTimeMillis()),"BTC", null, null, "main", "trade", BigDecimal.ONE));
         assertThat(result, notNullValue());
 
         TransferableBalanceResponse transferable = sandboxKucoinRestClient.accountAPI().transferable("BTC", "MARGIN");
