@@ -19,9 +19,9 @@ public class AccountTransferV2Request implements Serializable {
 
     private String currency;
 
-    private String fromSymbol;
+    private String fromTag;
 
-    private String toSymbol;
+    private String toTag;
 
     private String from;
 
