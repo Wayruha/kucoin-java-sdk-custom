@@ -3,25 +3,8 @@
  */
 package com.kucoin.sdk.rest.interfaces;
 
-import com.kucoin.sdk.rest.request.BorrowRecordQueryRequest;
-import com.kucoin.sdk.rest.request.BorrowRequest;
-import com.kucoin.sdk.rest.request.LendRequest;
-import com.kucoin.sdk.rest.request.RepayAllRequest;
-import com.kucoin.sdk.rest.request.RepaySingleRequest;
-import com.kucoin.sdk.rest.request.ToggleAutoLendRequest;
-import com.kucoin.sdk.rest.response.ActiveLendItem;
-import com.kucoin.sdk.rest.response.BorrowOutstandingResponse;
-import com.kucoin.sdk.rest.response.BorrowQueryResponse;
-import com.kucoin.sdk.rest.response.BorrowRepaidResponse;
-import com.kucoin.sdk.rest.response.BorrowResponse;
-import com.kucoin.sdk.rest.response.DoneLendItem;
-import com.kucoin.sdk.rest.response.LastTradeResponse;
-import com.kucoin.sdk.rest.response.LendAssetsResponse;
-import com.kucoin.sdk.rest.response.LendResponse;
-import com.kucoin.sdk.rest.response.MarketItemResponse;
-import com.kucoin.sdk.rest.response.Pagination;
-import com.kucoin.sdk.rest.response.SettledTradeItem;
-import com.kucoin.sdk.rest.response.UnsettledTradeItem;
+import com.kucoin.sdk.rest.request.*;
+import com.kucoin.sdk.rest.response.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -219,5 +202,10 @@ public interface LoanAPI {
      * @return
      */
     List<LastTradeResponse> queryLastTrade(String currency) throws IOException;
+
+    /**
+     * post a borrow request on IsolatedMargin
+     */
+    BorrowResponse isolatedMarginBorrow(IsolatedMarginBorrowRequest req) throws IOException;
 
 }
