@@ -10,6 +10,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by zicong.lu on 2018/12/14.
@@ -26,7 +27,7 @@ public class KucoinResponse<R> implements Serializable {
     private R data;
 
     public boolean isSuccessful() {
-        return SUCCESS_CODES.contains(this.code);
+        return SUCCESS_CODES.contains(this.code) && StringUtils.isEmpty(msg);
     }
 
 }
