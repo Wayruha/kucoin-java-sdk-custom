@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class IsolatedMarginPriceStrategyResponse {
+public class IsolatedMarginRiskLimit {
     private String symbol;
     private BigDecimal baseMaxBorrowAmount;
     private BigDecimal quoteMaxBorrowAmount;

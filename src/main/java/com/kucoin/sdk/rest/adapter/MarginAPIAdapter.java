@@ -46,12 +46,12 @@ public class MarginAPIAdapter extends AuthRetrofitAPIImpl<MarginAPIRetrofit> imp
     }
 
     @Override
-    public CrossMarginPriceStrategyResponse getCrossMarginPriceStrategy() throws IOException {
+    public List<CrossMarginRiskLimit> getCrossMarginPriceStrategy() throws IOException {
         return executeSync(getAPIImpl().getCrossMarginPriceStrategy());
     }
 
     @Override
-    public IsolatedMarginPriceStrategyResponse getIsolatedMarginPriceStrategy() throws IOException {
+    public List<IsolatedMarginRiskLimit> getIsolatedMarginPriceStrategy() throws IOException {
         return executeSync(getAPIImpl().getIsolatedMarginPriceStrategy());
     }
 

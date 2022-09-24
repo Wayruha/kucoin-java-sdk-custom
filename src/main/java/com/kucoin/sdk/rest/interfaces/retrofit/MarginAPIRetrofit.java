@@ -10,7 +10,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 import java.util.List;
 
@@ -32,10 +31,10 @@ public interface MarginAPIRetrofit {
     Call<KucoinResponse<MarginOrderCreateResponse>> createMarginOrder(@Body MarginOrderCreateRequest request);
 
     @GET("/api/v1/risk/limit/strategy?marginModel=cross")
-    Call<KucoinResponse<CrossMarginPriceStrategyResponse>> getCrossMarginPriceStrategy();
+    Call<KucoinResponse<List<CrossMarginRiskLimit>>> getCrossMarginPriceStrategy();
 
     @GET("/api/v1/risk/limit/strategy?marginModel=isolated")
-    Call<KucoinResponse<IsolatedMarginPriceStrategyResponse>> getIsolatedMarginPriceStrategy();
+    Call<KucoinResponse<List<IsolatedMarginRiskLimit>>> getIsolatedMarginPriceStrategy();
 
     @GET("api/v1/isolated/symbols")
     Call<KucoinResponse<List<MarginIsolatedPair>>> getIsolatedMarginSymbolsInfo();

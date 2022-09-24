@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CrossMarginPriceStrategyResponse {
+public class CrossMarginRiskLimit {
 
     private String currency;
 

@@ -55,13 +55,13 @@ public interface MarginAPI {
      *  Get Cross Margin Price Strategy
      * @return
      */
-    CrossMarginPriceStrategyResponse getCrossMarginPriceStrategy() throws IOException;
+    List<CrossMarginRiskLimit> getCrossMarginPriceStrategy() throws IOException;
 
     /**
      *  Get Isolated Margin Price Strategy
      * @return
      */
-    IsolatedMarginPriceStrategyResponse getIsolatedMarginPriceStrategy() throws IOException;
+    List<IsolatedMarginRiskLimit> getIsolatedMarginPriceStrategy() throws IOException;
 
     List<MarginIsolatedPair> getMarginIsolatedPairsInfo() throws IOException;
 
