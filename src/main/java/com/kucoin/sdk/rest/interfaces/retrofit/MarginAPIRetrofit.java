@@ -31,8 +31,11 @@ public interface MarginAPIRetrofit {
     @POST("api/v1/margin/order")
     Call<KucoinResponse<MarginOrderCreateResponse>> createMarginOrder(@Body MarginOrderCreateRequest request);
 
-    @GET("api/v1/risk/limit/strategy")
-    Call<KucoinResponse<MarginPriceStrategyResponse>> getMarginPriceStrategy(@Query("marginModel") String marginModel);
+    @GET("/api/v1/risk/limit/strategy?marginModel=cross")
+    Call<KucoinResponse<CrossMarginPriceStrategyResponse>> getCrossMarginPriceStrategy();
+
+    @GET("/api/v1/risk/limit/strategy?marginModel=isolated")
+    Call<KucoinResponse<IsolatedMarginPriceStrategyResponse>> getIsolatedMarginPriceStrategy();
 
     @GET("api/v1/isolated/symbols")
     Call<KucoinResponse<List<MarginIsolatedPair>>> getIsolatedMarginSymbolsInfo();

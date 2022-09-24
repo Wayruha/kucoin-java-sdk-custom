@@ -26,7 +26,7 @@ public class MarginAPIAdapter extends AuthRetrofitAPIImpl<MarginAPIRetrofit> imp
     }
 
     @Override
-    public MarkPriceResponse getMarkPrice(String symbol) throws IOException{
+    public MarkPriceResponse getMarkPrice(String symbol) throws IOException {
         return executeSync(getAPIImpl().getMarkPrice(symbol));
     }
 
@@ -46,8 +46,13 @@ public class MarginAPIAdapter extends AuthRetrofitAPIImpl<MarginAPIRetrofit> imp
     }
 
     @Override
-    public MarginPriceStrategyResponse getMarginPriceStrategy(String marginModel) throws IOException {
-        return executeSync(getAPIImpl().getMarginPriceStrategy(marginModel));
+    public CrossMarginPriceStrategyResponse getCrossMarginPriceStrategy() throws IOException {
+        return executeSync(getAPIImpl().getCrossMarginPriceStrategy());
+    }
+
+    @Override
+    public IsolatedMarginPriceStrategyResponse getIsolatedMarginPriceStrategy() throws IOException {
+        return executeSync(getAPIImpl().getIsolatedMarginPriceStrategy());
     }
 
     @Override

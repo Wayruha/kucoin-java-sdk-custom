@@ -14,5 +14,4 @@ public class KucoinObjectMapper {
         INSTANCE.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
         INSTANCE.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
-
 }

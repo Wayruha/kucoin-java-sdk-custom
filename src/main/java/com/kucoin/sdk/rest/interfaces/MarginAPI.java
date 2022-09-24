@@ -52,14 +52,16 @@ public interface MarginAPI {
     MarginOrderCreateResponse createMarginOrder(MarginOrderCreateRequest request) throws IOException;
 
     /**
-     *  Get Margin Price Strategy
-     *  <p>
-     *  Request via this endpoint to get the cross/isolated margin risk limit.
-     *  </p>
-     * @param marginModel
+     *  Get Cross Margin Price Strategy
      * @return
      */
-    MarginPriceStrategyResponse getMarginPriceStrategy(String marginModel) throws IOException;
+    CrossMarginPriceStrategyResponse getCrossMarginPriceStrategy() throws IOException;
+
+    /**
+     *  Get Isolated Margin Price Strategy
+     * @return
+     */
+    IsolatedMarginPriceStrategyResponse getIsolatedMarginPriceStrategy() throws IOException;
 
     List<MarginIsolatedPair> getMarginIsolatedPairsInfo() throws IOException;
 
