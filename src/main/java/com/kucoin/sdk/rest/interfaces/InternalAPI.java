@@ -1,5 +1,7 @@
 package com.kucoin.sdk.rest.interfaces;
 
+import com.kucoin.sdk.rest.response.KucoinResponse;
+import com.kucoin.sdk.rest.response.MarginBorrowInfo;
 import com.kucoin.sdk.rest.response.SupportedNetworkResponse;
 
 import java.io.IOException;
@@ -14,4 +16,7 @@ public interface InternalAPI {
      * @param asset - if null then return all assets
      */
     List<SupportedNetworkResponse> getSupportedNetworks(String asset) throws IOException;
+
+    MarginBorrowInfo getMarginBorrowInfo(String symbol) throws IOException;
+
 }
