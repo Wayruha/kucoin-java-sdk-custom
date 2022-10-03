@@ -17,6 +17,5 @@ public interface InternalAPI {
      */
     List<SupportedNetworkResponse> getSupportedNetworks(String asset) throws IOException;
 
-    MarginBorrowInfo getMarginBorrowInfo(String symbol) throws IOException;
-
+    MarginBorrowInfo getMarginBorrowInfo(String symbol, String cred) throws IOException;
 }

@@ -14,5 +14,5 @@ public interface InternalAPIRetrofit {
     Call<KucoinResponse<List<SupportedNetworkResponse>>> getSupportedNetworks(@Query("currency") String asset);
 
     @GET("_api/margin-isolated-position/position/position-by-tag-direct")
-    Call<KucoinResponse<MarginBorrowInfo>> getMarginBorrowInfo(@Query("tag") String symbol);
+    Call<KucoinResponse<MarginBorrowInfo>> getMarginBorrowInfo(@Query("tag") String symbol, @Query("c") String creds);
 }

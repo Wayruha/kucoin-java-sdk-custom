@@ -368,7 +368,7 @@ public class KucoinRestClientTest {
         assertThat(marginAccount, notNullValue());
 
 
-        MarginOrderCreateRequest request = MarginOrderCreateRequest.builder()
+        MarginOrderCreateRequest request = MarginOrderCreateRequest.marginBuilder()
                 .price(BigDecimal.valueOf(20)).size(new BigDecimal("0.0130")).side("sell")
                 .symbol("ATOM-USDT").type("limit").clientOid(String.valueOf(System.currentTimeMillis()))
                 .build();

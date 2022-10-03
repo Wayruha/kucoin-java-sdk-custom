@@ -3,11 +3,11 @@
  */
 package com.kucoin.sdk.rest.request;
 
-import java.math.BigDecimal;
-
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
+
+import java.math.BigDecimal;
 
 /**
  * 订单创建对象
@@ -15,8 +15,9 @@ import lombok.Getter;
  * @author 屈亮
  * @since 2018-09-17
  */
-@Builder
 @Data
+@AllArgsConstructor
+@Builder
 public class OrderCreateApiRequest {
 
     /**
@@ -28,7 +29,7 @@ public class OrderCreateApiRequest {
      * [optional] limit or market (default is limit)
      */
     @Builder.Default
-    private final String type = "limit";
+    private String type = "limit";
 
     /**
      * buy or sell
@@ -60,7 +61,7 @@ public class OrderCreateApiRequest {
      * [Optional] The type of trading : TRADE（Spot Trade）, MARGIN_TRADE (Margin Trade). Default is TRADE
      */
     @Builder.Default
-    private String tradeType ="TRADE";
+    private String tradeType = "TRADE";
 
     /**
      * [optional] Either loss or entry. Requires stopPrice to be defined

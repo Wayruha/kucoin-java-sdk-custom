@@ -20,7 +20,7 @@ public class InternalAPIAdapter extends PublicRetrofitAPIImpl<InternalAPIRetrofi
     }
 
     @Override
-    public MarginBorrowInfo getMarginBorrowInfo(String symbol) throws IOException {
-        return executeSync(getAPIImpl().getMarginBorrowInfo(symbol));
+    public MarginBorrowInfo getMarginBorrowInfo(String symbol, String cred) throws IOException {
+        return executeSync(getAPIImpl().getMarginBorrowInfo(symbol, cred));
     }
 }
