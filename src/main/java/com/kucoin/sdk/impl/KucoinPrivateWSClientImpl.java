@@ -52,6 +52,11 @@ public class KucoinPrivateWSClientImpl extends BaseWebsocketImpl implements Kuco
     }
 
     @Override
+    public long getPingTimeout() throws IOException {
+        return requestToken().getInstanceServers().get(0).getPingInterval();
+    }
+
+    @Override
     protected WebsocketTokenResponse requestToken() throws IOException {
         return this.websocketPrivateAPI.getPrivateToken();
     }

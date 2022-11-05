@@ -115,5 +115,5 @@ public interface KucoinPublicWSClient {
      */
     String onSnapshot(KucoinAPICallback<KucoinEvent<SnapshotEvent>> callback, String target);
 
-
+    long getPingTimeout() throws IOException;
 }

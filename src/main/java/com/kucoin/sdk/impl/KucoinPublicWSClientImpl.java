@@ -53,6 +53,11 @@ public class KucoinPublicWSClientImpl extends BaseWebsocketImpl implements Kucoi
     }
 
     @Override
+    public long getPingTimeout() throws IOException {
+        return requestToken().getInstanceServers().get(0).getPingInterval();
+    }
+
+    @Override
     public String onTicker(KucoinAPICallback<KucoinEvent<TickerChangeEvent>> callback, String... symbols) {
         if (callback != null) {
             this.listener.setTickerCallback(callback);

@@ -72,5 +72,6 @@ public interface KucoinPrivateWSClient {
     /**
      * Close client
      */
+    long getPingTimeout() throws IOException;
     void close() throws IOException;
 }
