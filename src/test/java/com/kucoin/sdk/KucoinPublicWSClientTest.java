@@ -4,7 +4,6 @@
 package com.kucoin.sdk;
 
 import com.kucoin.sdk.model.enums.ApiKeyVersionEnum;
-import com.kucoin.sdk.model.enums.PublicChannelEnum;
 import com.kucoin.sdk.rest.request.OrderCreateApiRequest;
 import com.kucoin.sdk.rest.response.OrderCreateResponse;
 import com.kucoin.sdk.rest.response.TickerResponse;
@@ -56,11 +55,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<TickerResponse> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onTicker(response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.TICKER, "ETH-BTC", "KCS-BTC");
-            gotEvent.countDown();
-        }, "ETH-BTC", "KCS-BTC");
+        final TestCallback<TickerChangeEvent> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onTicker(testCallback, "ETH-BTC", "KCS-BTC");
 
         // Make some actual executions
         buyAndSell();
@@ -74,11 +70,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<Level2ChangeEvent> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onLevel2Data(response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.LEVEL2, "ETH-BTC", "KCS-BTC");
-            gotEvent.countDown();
-        }, "ETH-BTC", "KCS-BTC");
+        final TestCallback<Level2ChangeEvent> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onLevel2Data(testCallback, "ETH-BTC", "KCS-BTC");
 
         // Trigger a market change
         placeOrderAndCancelOrder();
@@ -92,11 +85,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<Level2Event> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onLevel2Data(5, response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.LEVEL2_DEPTH5, "ETH-BTC", "BTC-USDT");
-            gotEvent.countDown();
-        }, "ETH-BTC", "BTC-USDT");
+        final TestCallback<Level2Event> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onLevel2Data(5, testCallback, "ETH-BTC", "BTC-USDT");
 
         // Trigger a market change
         placeOrderAndCancelOrder();
@@ -110,11 +100,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<Level2Event> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onLevel2Data(50, response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.LEVEL2_DEPTH50, "ETH-BTC", "BTC-USDT");
-            gotEvent.countDown();
-        }, "ETH-BTC", "BTC-USDT");
+        final TestCallback<Level2Event> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onLevel2Data(50, testCallback, "ETH-BTC", "BTC-USDT");
 
         // Trigger a market change
         placeOrderAndCancelOrder();
@@ -128,11 +115,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<MatchExcutionChangeEvent> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onMatchExecutionData(response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.MATCH, "ETH-BTC", "KCS-BTC");
-            gotEvent.countDown();
-        }, "ETH-BTC", "KCS-BTC");
+        final TestCallback<MatchExcutionChangeEvent> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onMatchExecutionData(testCallback, "ETH-BTC", "KCS-BTC");
 
         // Make some actual executions
         buyAndSell();
@@ -146,11 +130,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<Level3ChangeEvent> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onLevel3Data(response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.LEVEL3, "ETH-BTC", "KCS-BTC");
-            gotEvent.countDown();
-        }, "ETH-BTC", "KCS-BTC");
+        final TestCallback<Level3ChangeEvent> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onLevel3Data(testCallback, "ETH-BTC", "KCS-BTC");
 
         // Trigger a market change
         placeOrderAndCancelOrder();
@@ -164,11 +145,8 @@ public class KucoinPublicWSClientTest {
         AtomicReference<Level3Event> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
 
-        kucoinPublicWSClient.onLevel3Data_V2(response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.LEVEL3_V2, "ETH-BTC", "BTC-USDT");
-            gotEvent.countDown();
-        }, "ETH-BTC", "BTC-USDT");
+        final TestCallback<Level3Event> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onLevel3Data_V2(testCallback, "ETH-BTC", "BTC-USDT");
 
         // Trigger a market change
         placeOrderAndCancelOrder();
@@ -188,11 +166,8 @@ public class KucoinPublicWSClientTest {
     public void onSnapshot() throws Exception {
         AtomicReference<SnapshotEvent> event = new AtomicReference<>();
         CountDownLatch gotEvent = new CountDownLatch(1);
-        kucoinPublicWSClient.onSnapshot(response -> {
-            event.set(response.getData());
-            kucoinPublicWSClient.unsubscribe(PublicChannelEnum.SNAPSHOT, "ETH-BTC");
-            gotEvent.countDown();
-        }, "ETH-BTC");
+        final TestCallback<SnapshotEvent> testCallback = new TestCallback<>(event, gotEvent);
+        kucoinPublicWSClient.onSnapshot(testCallback, "ETH-BTC");
         placeOrderAndCancelOrder();
         gotEvent.await(20, TimeUnit.SECONDS);
         System.out.println(event.get());

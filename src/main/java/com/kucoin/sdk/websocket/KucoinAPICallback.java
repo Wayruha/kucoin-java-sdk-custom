@@ -12,4 +12,5 @@ public interface KucoinAPICallback<T> {
 
     void onResponse(T response) throws KucoinApiException;
 
+    void onFailure(Throwable cause);
 }

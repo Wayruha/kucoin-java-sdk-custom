@@ -85,6 +85,7 @@ public class KucoinClientBuilder {
         if (marginAPI == null) marginAPI = new MarginAPIAdapter(baseUrl, apiKey, secret, passPhrase, apiKeyVersion);
         if (loanAPI == null) loanAPI = new LoanAPIAdapter(baseUrl, apiKey, secret, passPhrase, apiKeyVersion);
         if (currencyAPI == null) currencyAPI = new CurrencyAPIAdaptor(baseUrl);
+        if (orderBookAPI == null) orderBookAPI = new OrderBookAPIAdapter(baseUrl, apiKey, secret, passPhrase, apiKeyVersion);
         if (timeAPI == null) timeAPI = new TimeAPIAdapter(baseUrl);
         if (commonAPI == null) commonAPI = new CommonAPIAdapter(baseUrl);
         if (symbolAPI == null) symbolAPI = new SymbolAPIAdaptor(baseUrl);
