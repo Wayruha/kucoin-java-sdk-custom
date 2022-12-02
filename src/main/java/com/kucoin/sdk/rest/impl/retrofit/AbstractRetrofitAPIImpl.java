@@ -48,6 +48,8 @@ public abstract class AbstractRetrofitAPIImpl<T> {
         Response<KucoinResponse<R>> response = call.execute();
         if (response.isSuccessful() && response.body() != null && response.body().isSuccessful()) {
             return response.body().getData();
+        } else if (response.body() != null && response.body().getData() == null) {
+            return null;
         } else {
             KucoinResponse<?> errorResponse;
             if (response.isSuccessful()) {
@@ -55,6 +57,7 @@ public abstract class AbstractRetrofitAPIImpl<T> {
             } else {
                 errorResponse = getErrorResponse(response);
             }
+
             throw new KucoinApiException(errorResponse.getCode(), errorResponse.getMsg());
         }
     }
