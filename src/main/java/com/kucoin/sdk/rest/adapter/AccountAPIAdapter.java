@@ -60,8 +60,8 @@ public class AccountAPIAdapter extends AuthRetrofitAPIImpl<AccountAPIRetrofit> i
     }
 
     @Override
-    public Map<String, String> innerTransfer2(AccountTransferV2Request request) throws IOException {
-        return super.executeSync(getAPIImpl().applyTransfer2(request));
+    public Map<String, String> innerTransfer(AccountTransferV2Request request) throws IOException {
+        return super.executeSync(getAPIImpl().applyTransfer(request));
     }
 
     @Override

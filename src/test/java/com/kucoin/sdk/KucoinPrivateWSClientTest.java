@@ -5,7 +5,6 @@ package com.kucoin.sdk;
 
 import com.kucoin.sdk.exception.KucoinApiException;
 import com.kucoin.sdk.model.enums.ApiKeyVersionEnum;
-import com.kucoin.sdk.model.enums.PrivateChannelEnum;
 import com.kucoin.sdk.rest.request.AccountTransferV2Request;
 import com.kucoin.sdk.rest.request.OrderCreateApiRequest;
 import com.kucoin.sdk.rest.request.StopOrderCreateRequest;
@@ -194,7 +193,7 @@ public class KucoinPrivateWSClientTest {
     private void innerTransfer2() throws IOException {
         List<AccountBalancesResponse> accountBalancesResponses = kucoinRestClient.accountAPI().listAccounts("USDT", null);
         assertThat(accountBalancesResponses.size(), Is.is(2));
-        kucoinRestClient.accountAPI().innerTransfer2(new AccountTransferV2Request(String.valueOf(System.currentTimeMillis()),
+        kucoinRestClient.accountAPI().innerTransfer(new AccountTransferV2Request(String.valueOf(System.currentTimeMillis()),
                 "USDT", null, null,  "trade", "main", new BigDecimal("0.000001")));
     }
 }

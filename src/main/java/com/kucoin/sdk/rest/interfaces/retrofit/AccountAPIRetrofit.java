@@ -49,8 +49,7 @@ public interface AccountAPIRetrofit {
             @Query("endAt") long endAt);
 
     @POST("api/v2/accounts/inner-transfer")
-    Call<KucoinResponse<Map<String, String>>> applyTransfer2(
-            @Body AccountTransferV2Request request);
+    Call<KucoinResponse<Map<String, String>>> applyTransfer(@Body AccountTransferV2Request request);
 
     @GET("api/v1/sub-accounts")
     Call<KucoinResponse<List<SubAccountBalanceResponse>>> getSubAccountList();

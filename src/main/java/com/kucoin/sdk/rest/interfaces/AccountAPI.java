@@ -83,7 +83,7 @@ public interface AccountAPI {
      * @param request
      * @return
      */
-    Map<String, String> innerTransfer2(AccountTransferV2Request request) throws IOException;
+    Map<String, String> innerTransfer(AccountTransferV2Request request) throws IOException;
 
     /**
      * Get a list of sub-accounts.
