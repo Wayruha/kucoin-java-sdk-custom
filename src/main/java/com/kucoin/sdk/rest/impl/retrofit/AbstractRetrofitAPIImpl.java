@@ -46,14 +46,13 @@ public abstract class AbstractRetrofitAPIImpl<T> {
      */
     public <R> R executeSync(Call<KucoinResponse<R>> call) throws IOException {
         Response<KucoinResponse<R>> response = call.execute();
-        if (response.isSuccessful() && response.body() != null && response.body().isSuccessful()) {
-            return response.body().getData();
-        } else if (response.body() != null && response.body().getData() == null) {
-            return null;
+        final KucoinResponse<R> body = response.body();
+        if (response.isSuccessful() && body != null && body.isSuccessful()) {
+            return body.getData();
         } else {
             KucoinResponse<?> errorResponse;
             if (response.isSuccessful()) {
-                errorResponse = response.body();
+                errorResponse = body;
             } else {
                 errorResponse = getErrorResponse(response);
             }
