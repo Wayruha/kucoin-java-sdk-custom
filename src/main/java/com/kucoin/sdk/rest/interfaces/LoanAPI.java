@@ -208,4 +208,6 @@ public interface LoanAPI {
      */
     BorrowResponse isolatedMarginBorrow(IsolatedMarginBorrowRequest req) throws IOException;
 
+    IsolatedMarginAccountPair queryIsolatedMarginAccount(String symbol) throws IOException;
+
 }

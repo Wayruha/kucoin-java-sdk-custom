@@ -112,4 +112,9 @@ public class LoanAPIAdapter extends AuthRetrofitAPIImpl<LoanAPIRetrofit> impleme
     public BorrowResponse isolatedMarginBorrow(IsolatedMarginBorrowRequest req) throws IOException {
         return executeSync(getAPIImpl().isolatedMarginBorrow(req));
     }
+
+    @Override
+    public IsolatedMarginAccountPair queryIsolatedMarginAccount(String symbol) throws IOException {
+        return executeSync(getAPIImpl().queryIsolatedMarginAccount(symbol));
+    }
 }
