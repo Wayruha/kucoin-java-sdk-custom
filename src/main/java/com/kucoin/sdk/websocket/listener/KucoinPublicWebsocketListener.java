@@ -30,14 +30,14 @@ public class KucoinPublicWebsocketListener extends WebSocketListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KucoinPublicWebsocketListener.class);
 
-    private KucoinAPICallback<KucoinEvent<TickerChangeEvent>> tickerCallback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<Level2ChangeEvent>> level2Callback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<Level2Event>> level2Depth5Callback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<Level2Event>> level2Depth50Callback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<MatchExcutionChangeEvent>> matchDataCallback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<Level3ChangeEvent>> level3Callback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<Level3Event>> level3V2Callback = new PrintCallback<>();
-    private KucoinAPICallback<KucoinEvent<SnapshotEvent>> snapshotCallback = new PrintCallback<>();
+    private KucoinAPICallback<KucoinEvent<TickerChangeEvent>> tickerCallback;
+    private KucoinAPICallback<KucoinEvent<Level2ChangeEvent>> level2Callback;
+    private KucoinAPICallback<KucoinEvent<Level2Event>> level2Depth5Callback;
+    private KucoinAPICallback<KucoinEvent<Level2Event>> level2Depth50Callback;
+    private KucoinAPICallback<KucoinEvent<MatchExcutionChangeEvent>> matchDataCallback;
+    private KucoinAPICallback<KucoinEvent<Level3ChangeEvent>> level3Callback;
+    private KucoinAPICallback<KucoinEvent<Level3Event>> level3V2Callback;
+    private KucoinAPICallback<KucoinEvent<SnapshotEvent>> snapshotCallback;
 
     @Override
     public void onOpen(WebSocket webSocket, Response response) {
@@ -94,8 +94,6 @@ public class KucoinPublicWebsocketListener extends WebSocketListener {
 
     @Override
     public void onFailure(WebSocket webSocket, Throwable t, Response response) {
-        LOGGER.error("Error on public socket", t);
-
         if( tickerCallback != null ) {
             tickerCallback.onFailure(t);
         }
