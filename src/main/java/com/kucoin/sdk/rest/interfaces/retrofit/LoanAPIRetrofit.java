@@ -91,6 +91,9 @@ public interface LoanAPIRetrofit {
     @POST("api/v1/isolated/borrow")
     Call<KucoinResponse<BorrowResponse>> isolatedMarginBorrow(@Body IsolatedMarginBorrowRequest request);
 
+    @POST("api/v1/isolated/repay/all")
+    Call<KucoinResponse<Void>> isolatedQuickRepayment(@Body IsolatedQuickRepaymentRequest request);
+
     @GET("api/v1/isolated/account/{symbol}")
     Call<KucoinResponse<IsolatedMarginAccountPair>> queryIsolatedMarginAccount(@Path("symbol") String symbol);
 }

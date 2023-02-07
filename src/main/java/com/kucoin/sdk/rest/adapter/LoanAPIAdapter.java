@@ -114,6 +114,11 @@ public class LoanAPIAdapter extends AuthRetrofitAPIImpl<LoanAPIRetrofit> impleme
     }
 
     @Override
+    public Void isolatedQuickRepayment(IsolatedQuickRepaymentRequest req) throws IOException {
+        return executeSync(getAPIImpl().isolatedQuickRepayment(req));
+    }
+
+    @Override
     public IsolatedMarginAccountPair queryIsolatedMarginAccount(String symbol) throws IOException {
         return executeSync(getAPIImpl().queryIsolatedMarginAccount(symbol));
     }
