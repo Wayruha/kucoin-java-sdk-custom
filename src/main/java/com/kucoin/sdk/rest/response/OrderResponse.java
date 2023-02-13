@@ -9,6 +9,9 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.kucoin.sdk.model.enums.OrderSide;
+import com.kucoin.sdk.model.enums.OrderType;
+import com.kucoin.sdk.model.enums.TradeType;
 import lombok.Data;
 
 @Data
@@ -21,17 +24,17 @@ public class OrderResponse {
 
     private String opType;
 
-    private String type;
+    private OrderType type;
 
-    public String getType() {
-        return this.type == null ? null : this.type.toLowerCase();
-    }
+//    public String getType() {
+//        return this.type == null ? null : this.type.toLowerCase();
+//    }
 
-    private String side;
+    private OrderSide side;
 
-    public String getSide() {
-        return this.side == null ? null : this.side.toLowerCase();
-    }
+//    public String getSide() {
+//        return this.side == null ? null : this.side.toLowerCase();
+//    }
 
     private BigDecimal price;
 
@@ -86,6 +89,6 @@ public class OrderResponse {
 
     private Date createdAt;
 
-    private String tradeType;
+    private TradeType tradeType;
 
 }

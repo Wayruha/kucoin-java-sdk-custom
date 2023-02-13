@@ -3,6 +3,10 @@
  */
 package com.kucoin.sdk.rest.interfaces.retrofit;
 
+import com.kucoin.sdk.model.enums.OrderSide;
+import com.kucoin.sdk.model.enums.OrderStatus;
+import com.kucoin.sdk.model.enums.OrderType;
+import com.kucoin.sdk.model.enums.TradeType;
 import com.kucoin.sdk.rest.request.MultiOrderCreateRequest;
 import com.kucoin.sdk.rest.request.OrderCreateApiRequest;
 import com.kucoin.sdk.rest.request.StopOrderCreateRequest;
@@ -54,14 +58,14 @@ public interface OrderAPIRetrofit {
 
     @GET("api/v1/orders")
     Call<KucoinResponse<Pagination<OrderResponse>>> queryOrders(@Query("symbol") String symbol,
-                                                                @Query("side") String side,
-                                                                @Query("type") String type,
-                                                                @Query("tradeType") String tradeType,
-                                                                @Query("status") String status,
+                                                                @Query("side") OrderSide side,
+                                                                @Query("type") OrderType type,
+                                                                @Query("tradeType") TradeType tradeType,
+                                                                @Query("status") OrderStatus status,
                                                                 @Query("startAt") Long startAt,
                                                                 @Query("endAt") Long endAt,
-                                                                @Query("pageSize") int pageSize,
-                                                                @Query("currentPage") int currentPage);
+                                                                @Query("pageSize") Long pageSize,
+                                                                @Query("currentPage") Long currentPage);
 
     @GET("api/v1/trade-fees")
     Call<KucoinResponse<List<UserFeeResponse>>> getUserTradeFees(@Query("symbols") String symbols);

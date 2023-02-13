@@ -3,6 +3,10 @@
  */
 package com.kucoin.sdk.rest.adapter;
 
+import com.kucoin.sdk.model.enums.OrderSide;
+import com.kucoin.sdk.model.enums.OrderStatus;
+import com.kucoin.sdk.model.enums.OrderType;
+import com.kucoin.sdk.model.enums.TradeType;
 import com.kucoin.sdk.rest.impl.retrofit.AuthRetrofitAPIImpl;
 import com.kucoin.sdk.rest.interfaces.OrderAPI;
 import com.kucoin.sdk.rest.interfaces.retrofit.OrderAPIRetrofit;
@@ -85,9 +89,9 @@ public class OrderAPIAdapter extends AuthRetrofitAPIImpl<OrderAPIRetrofit> imple
     }
 
     @Override
-    public Pagination<OrderResponse> listOrders(String symbol, String side, String type, String tradeType,
-                                                String status, Long start,
-                                                Long end, int pageSize, int currentPage) throws IOException {
+    public Pagination<OrderResponse> listOrders(String symbol, OrderSide side, OrderType type, TradeType tradeType,
+                                                OrderStatus status, Long start,
+                                                Long end, Long pageSize, Long currentPage) throws IOException {
         return executeSync(getAPIImpl().queryOrders(symbol, side, type, tradeType, status,
                 start, end, pageSize, currentPage));
     }

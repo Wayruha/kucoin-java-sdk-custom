@@ -6,6 +6,8 @@ package com.kucoin.sdk;
 import com.google.common.collect.Lists;
 import com.kucoin.sdk.exception.KucoinApiException;
 import com.kucoin.sdk.model.enums.ApiKeyVersionEnum;
+import com.kucoin.sdk.model.enums.OrderStatus;
+import com.kucoin.sdk.model.enums.TradeType;
 import com.kucoin.sdk.rest.request.AccountTransferV2Request;
 import com.kucoin.sdk.rest.request.BorrowRecordQueryRequest;
 import com.kucoin.sdk.rest.request.BorrowRequest;
@@ -202,7 +204,7 @@ public class KucoinRestClientTest {
         assertThat(multiOrderResponse, notNullValue());
 
         Pagination<OrderResponse> orderResponsePagination = sandboxKucoinRestClient.orderAPI().listOrders("ETH-BTC",
-                null, null,"TRADE", "active", null, null, 10, 1);
+                null, null, TradeType.TRADE, OrderStatus.ACTIVE, null, null, 10L, 1L);
         assertThat(orderResponsePagination, notNullValue());
 
         OrderResponse orderResponse = sandboxKucoinRestClient.orderAPI().getOrder(order.getOrderId());

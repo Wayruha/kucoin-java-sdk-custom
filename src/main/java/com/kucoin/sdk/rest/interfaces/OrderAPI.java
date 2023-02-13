@@ -6,6 +6,10 @@ package com.kucoin.sdk.rest.interfaces;
 import java.io.IOException;
 import java.util.List;
 
+import com.kucoin.sdk.model.enums.OrderSide;
+import com.kucoin.sdk.model.enums.OrderStatus;
+import com.kucoin.sdk.model.enums.OrderType;
+import com.kucoin.sdk.model.enums.TradeType;
 import com.kucoin.sdk.rest.request.MultiOrderCreateRequest;
 import com.kucoin.sdk.rest.request.OrderCreateApiRequest;
 import com.kucoin.sdk.rest.request.StopOrderCreateRequest;
@@ -115,8 +119,8 @@ public interface OrderAPI {
      * @param currentPage
      * @return A page of orders.
      */
-    Pagination<OrderResponse> listOrders(String symbol, String side, String type, String tradeType, String status,
-                                         Long startAt, Long endAt, int pageSize, int currentPage) throws IOException;
+    Pagination<OrderResponse> listOrders(String symbol, OrderSide side, OrderType type, TradeType tradeType, OrderStatus status,
+                                         Long startAt, Long endAt, Long pageSize, Long currentPage) throws IOException;
 
     /**
      * Actual fee rate of the trading pair
