@@ -3,6 +3,7 @@ package com.kucoin.sdk.rest.adapter;
 import com.kucoin.sdk.rest.impl.retrofit.PublicRetrofitAPIImpl;
 import com.kucoin.sdk.rest.interfaces.InternalAPI;
 import com.kucoin.sdk.rest.interfaces.retrofit.InternalAPIRetrofit;
+import com.kucoin.sdk.rest.response.LoanCurrencyResponse;
 import com.kucoin.sdk.rest.response.MarginBorrowInfo;
 import com.kucoin.sdk.rest.response.SupportedNetworkResponse;
 
@@ -22,5 +23,10 @@ public class InternalAPIAdapter extends PublicRetrofitAPIImpl<InternalAPIRetrofi
     @Override
     public MarginBorrowInfo getMarginBorrowInfo(String symbol, String cred) throws IOException {
         return executeSync(getAPIImpl().getMarginBorrowInfo(symbol, cred));
+    }
+
+    @Override
+    public List<LoanCurrencyResponse> getLoanInfo() throws IOException {
+        return executeSync(getAPIImpl().getLoanInfo());
     }
 }
