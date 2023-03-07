@@ -3,6 +3,7 @@
  */
 package com.kucoin.sdk.rest.interfaces.retrofit;
 
+import com.kucoin.sdk.model.enums.AccountType;
 import com.kucoin.sdk.rest.request.AccountCreateRequest;
 import com.kucoin.sdk.rest.request.AccountTransferV2Request;
 import com.kucoin.sdk.rest.request.SubMasterTransferV2Request;
@@ -61,6 +62,6 @@ public interface AccountAPIRetrofit {
     Call<KucoinResponse<Map<String, String>>> transferBetweenSubAndMasterV2(@Body SubMasterTransferV2Request request);
 
     @GET("api/v1/accounts/transferable")
-    Call<KucoinResponse<TransferableBalanceResponse>> transferable(@Query("currency") String currency, @Query("type") String type);
+    Call<KucoinResponse<TransferableBalanceResponse>> transferable(@Query("currency") String currency, @Query("type") AccountType type, @Query("tag") String isolatedPair);
 
 }

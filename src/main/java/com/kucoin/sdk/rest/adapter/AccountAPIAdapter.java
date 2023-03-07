@@ -3,6 +3,7 @@
  */
 package com.kucoin.sdk.rest.adapter;
 
+import com.kucoin.sdk.model.enums.AccountType;
 import com.kucoin.sdk.rest.impl.retrofit.AuthRetrofitAPIImpl;
 import com.kucoin.sdk.rest.interfaces.AccountAPI;
 import com.kucoin.sdk.rest.interfaces.retrofit.AccountAPIRetrofit;
@@ -85,8 +86,7 @@ public class AccountAPIAdapter extends AuthRetrofitAPIImpl<AccountAPIRetrofit> i
     }
 
     @Override
-    public TransferableBalanceResponse transferable(String currency, String type) throws IOException {
-        return super.executeSync(getAPIImpl().transferable(currency, type));
+    public TransferableBalanceResponse transferable(String currency, AccountType accountType, String isolatedPair) throws IOException {
+        return super.executeSync(getAPIImpl().transferable(currency, accountType, isolatedPair));
     }
-
 }

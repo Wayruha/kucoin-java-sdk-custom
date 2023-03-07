@@ -4,6 +4,7 @@
 package com.kucoin.sdk.rest.interfaces;
 
 import com.kucoin.sdk.exception.KucoinApiException;
+import com.kucoin.sdk.model.enums.AccountType;
 import com.kucoin.sdk.rest.request.AccountTransferV2Request;
 import com.kucoin.sdk.rest.response.AccountBalanceResponse;
 import com.kucoin.sdk.rest.response.AccountBalancesResponse;
@@ -133,7 +134,7 @@ public interface AccountAPI {
      * @param type   The account type: MAIN, TRADE, MARGIN or POOL
      * @return
      */
-    TransferableBalanceResponse transferable(String currency,String type) throws IOException;
+    TransferableBalanceResponse transferable(String currency, AccountType type, String isolatedPair) throws IOException;
 
 }
 

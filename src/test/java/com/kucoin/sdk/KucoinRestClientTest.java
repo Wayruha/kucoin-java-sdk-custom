@@ -5,6 +5,7 @@ package com.kucoin.sdk;
 
 import com.google.common.collect.Lists;
 import com.kucoin.sdk.exception.KucoinApiException;
+import com.kucoin.sdk.model.enums.AccountType;
 import com.kucoin.sdk.model.enums.ApiKeyVersionEnum;
 import com.kucoin.sdk.model.enums.OrderStatus;
 import com.kucoin.sdk.model.enums.TradeType;
@@ -145,7 +146,7 @@ public class KucoinRestClientTest {
         Map<String, String> result = sandboxKucoinRestClient.accountAPI().innerTransfer(new AccountTransferV2Request(String.valueOf(System.currentTimeMillis()),"BTC", null, null, "main", "trade", BigDecimal.ONE));
         assertThat(result, notNullValue());
 
-        TransferableBalanceResponse transferable = sandboxKucoinRestClient.accountAPI().transferable("BTC", "MARGIN");
+        TransferableBalanceResponse transferable = sandboxKucoinRestClient.accountAPI().transferable("BTC", AccountType.MARGIN, null);
         assertThat(transferable, notNullValue());
 
         Pagination<AccountDetailResponse> accountHistory = sandboxKucoinRestClient.accountAPI().getAccountLedgers("BTC",
