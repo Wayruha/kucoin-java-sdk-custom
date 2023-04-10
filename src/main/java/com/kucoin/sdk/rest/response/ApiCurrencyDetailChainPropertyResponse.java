@@ -9,6 +9,8 @@ public class ApiCurrencyDetailChainPropertyResponse {
 
     private String chainName;
 
+    private String chain;
+
     private BigDecimal withdrawalMinSize;
 
     private BigDecimal withdrawalMinFee;
