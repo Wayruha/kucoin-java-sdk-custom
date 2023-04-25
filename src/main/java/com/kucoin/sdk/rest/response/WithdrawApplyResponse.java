@@ -14,5 +14,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WithdrawApplyResponse {
 
-    private String withdrawId;
+    private String withdrawalId;
 }
