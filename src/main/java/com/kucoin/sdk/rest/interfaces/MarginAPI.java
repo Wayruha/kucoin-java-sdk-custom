@@ -68,4 +68,6 @@ public interface MarginAPI {
     MarginIsolatedPair getMarginIsolatedPairInfo(String symbol) throws IOException;
 
     IsolatedMarginAccount getIsolatedMarginAccount() throws IOException;
+
+    IsolatedMarginAccountV3 getIsolatedMarginAccountV3() throws IOException;
 }

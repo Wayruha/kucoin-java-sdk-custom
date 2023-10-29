@@ -44,4 +44,7 @@ public interface MarginAPIRetrofit {
 
     @GET("api/v1/isolated/accounts")
     Call<KucoinResponse<IsolatedMarginAccount>> getIsolatedAccount();
+
+    @GET("api/v3/isolated/accounts")
+    Call<KucoinResponse<IsolatedMarginAccountV3>> getIsolatedAccountV3();
 }
