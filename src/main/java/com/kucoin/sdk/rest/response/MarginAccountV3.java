@@ -12,20 +12,21 @@ import java.math.BigDecimal;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MarginAccountV3 {
-
     private String currency;
 
-    private BigDecimal totalBalance;
+    private boolean borrowEnabled;
 
-    private BigDecimal availableBalance;
+    private boolean repayEnabled;
 
-    private BigDecimal holdBalance;
+    private boolean transferEnabled;
 
-    private BigDecimal liability;
+    private BigDecimal borrowed;
 
-    private BigDecimal borrowableAmount;
+    private BigDecimal totalAsset;
 
-    private BigDecimal interest;
+    private BigDecimal available;
+
+    private BigDecimal hold;
 
     private BigDecimal maxBorrowSize;
 }
